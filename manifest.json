@@ -1,0 +1,10 @@
+{
+  "files": {
+    "index.js": "",
+    "README.md": ""
+  },
+  "defs": {
+    "S_CREATURE_LIFE": 3,
+    "S_CHAT": 3
+  }
+}

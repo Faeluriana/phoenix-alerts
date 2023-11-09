@@ -1,0 +1,13 @@
+{
+	"disableAutoUpdate": false,
+	"name": "phoenix-alerts",
+	"author": "Faeluriana",
+	"description": "Alerts you when a party member is resurrecting with a Phoenix passive or with an Eren's Key",
+	"servers": [""],
+	"donationUrl": "https://www.paypal.com/donate/?hosted_button_id=V568XGXZGZVJ6",
+	"supportUrl": "",
+	"options": {
+        "cliName": "Phoenix Alerts"
+    },
+	"version": "1.0"
+}
