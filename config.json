@@ -2,5 +2,21 @@
   "enabled": true,
   "everyone": false,
   "debug": false,
-  "dungeon": true
+  "dungeon": true,
+  "language": "en",
+  
+  "availableLanguages": {
+    "en": [
+      "Phoenix Resurrection",
+      "Eren's Key"
+    ],
+    "ru": [
+      "Воскрешение Феникса",
+      "Ключ Эрена"
+    ],
+    "pt": [
+      "Ressurreição da Fênix",
+      "Chave de Eren"
+    ]
+  }
 }

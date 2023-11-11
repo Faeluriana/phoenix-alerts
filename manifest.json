@@ -1,7 +1,8 @@
 {
   "files": {
-    "index.js": "",
-    "README.md": ""
+    "index.js": "800f2c647fa276f64b5eb50dd9c85b2e7d497aa610e328b6f0eb0e0ab88b1a8e",
+    "module.json": "262dfe23ef5d827abda54fd1153f326f906480b894425c26e8b4047d56599d60",
+    "README.md": "e4c1c987ba744da715db3dd9ceae107567d455ff97e955cd3e4f830d0763ae99"
   },
   "defs": {
     "S_CREATURE_LIFE": 3,
