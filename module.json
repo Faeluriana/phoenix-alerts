@@ -1,11 +1,11 @@
 {
 	"disableAutoUpdate": false,
 	"name": "phoenix-alerts",
-	"author": "<font color='#ffc0cb'>Faeluriana</font>",
+	"author": "<font color='#ffc0cb'> Faeluriana</font>",
 	"description": "Alerts you when a party member is resurrecting with a Phoenix passive or with an Eren's Key",
-	"servers": ["https://raw.githubusercontent.com/Faeluriana/phoenix-alerts/main"],
+	"servers": ["https://raw.githubusercontent.com/Faeluriana/phoenix-alerts/main/"],
 	"donationUrl": "https://www.paypal.com/donate/?hosted_button_id=V568XGXZGZVJ6",
-	"supportUrl": "https://github.com/Faeluriana/phoenix-alerts/issues",
+	"supportUrl": "https://github.com/Faeluriana/phoenix-alerts/issues/",
 	"options": {
         "cliName": "Phoenix Alerts",
 		"settingsFile": "config.json"
