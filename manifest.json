@@ -1,8 +1,8 @@
 {
   "files": {
-    "index.js": "ba77be3b08ce547b797441753db825d46e742d6b4f37e0ea3efb166ae97a3fde",
-    "module.json": "0e5e087f293dd55b645a10c69740d3bb7742c0da7a0cf8d18c1ceb87c1fe4f8a",
-    "README.md": "2a07fa3cceef813487eec826c9c1179dc69975622c1ab90c9c543e04d10a0b80"
+    "index.js": "419ec3da05af8d4bbf9926d3bc04bffd379fd526d90f125a95069119f00e0bb2",
+    "module.json": "d55f010afbc798d1c34446129f7f9fd737fb95ed0fded98470420bd8dde50704",
+    "README.md": "2f22a70cdb59d96e933bf66fbfb46b57d4e246e770faea43fbb097c6e1461335"
   },
   "defs": {
     "S_CREATURE_LIFE": 3,

@@ -17,7 +17,7 @@ module.exports = function phoenix(mod) {
         switch (cmd) {
             case "all":
                 everyone = !everyone;
-                mod.command.message('phoenix alerts when ' + (everyone ? 'anyone': (healer ? '' : 'a healer')) + ' is resurrecting');
+                mod.command.message('phoenix alerts when ' + (everyone ? 'anyone' : (healer ? '' : 'a healer')) + ' is resurrecting');
                 break;
             case "debug":
                 debug = !debug;
@@ -51,7 +51,7 @@ module.exports = function phoenix(mod) {
         if (mod.game.party.isMember(event.gameId) && !mod.game.me.is(event.gameId)) {
             if (!event.alive) {
                 // Phoenix mount passive
-                if (event.resPassive && canSendMessage(event.gameId)) {                    
+                if (event.resPassive && canSendMessage(event.gameId)) {
                     sendFakeMessage(event.gameId, msgs[0]);
                 }
             }
@@ -65,7 +65,7 @@ module.exports = function phoenix(mod) {
     });
 
     /* only in dungeons for performance reasons */
-    if (ress_confirmation){
+    if (ress_confirmation) {
         mod.hook('S_EACH_SKILL_RESULT', 14, (event) => {
             if (!enabled) return;
             if (!mod.game.me.inDungeon) return;
@@ -96,7 +96,7 @@ module.exports = function phoenix(mod) {
     const canSendMessage = (gameId) => {
         let targetRole = mod.game.party.getMemberData(gameId).class;
 
-        if (debug){
+        if (debug) {
             const name = mod.game.party.getMemberData(gameId).name;
             mod.command.message('canSendMessage: ' + name + ' ' + targetRole);
         }
@@ -104,7 +104,7 @@ module.exports = function phoenix(mod) {
         if (dungeonOnly && !mod.game.me.inDungeon) {
             return false;
         }
-        
+
         // Protect against unknown scenarios
         if (mod.game.me.inBattleground || mod.game.me.inCivilUnrest) return false;
 

@@ -3,7 +3,7 @@
 - Only you will be able to see this message
 - If your class is not a healer, it only alerts you when the healer is resurrecting with phoenix/key
 - If your class is a healer, it alerts you for everyone
-- As a healer, it also warns you when someone got ressurected but isn't getting up yet. It could potentially impact performance(?)
+- As a healer, it also warns you when someone got ressurected but isn't getting up yet. It could potentially impact performance (?)
 
 ## Configuration
 - `enabled`: `true` if you want the mod enabled on startup. `false` otherwise
@@ -16,7 +16,8 @@
 - `language`: `en` for English language. Currently the only one supported
 
 ## Dependencies
-- This mod was made for **[Tera Private Toolbox](https://github.com/tera-private-toolbox/tera-toolbox)** - I cannot make any guarantees that it will work on any other toolbox
+- This mod was made for **[Tera Private Toolbox](https://github.com/tera-private-toolbox/tera-toolbox)**
+- - I cannot make any guarantees that it will work on any other toolbox. Or any toolbox, really
 - **[Command](https://github.com/tera-private-toolbox/command)** - Already installed in toolbox
 - **[Tera-Game-State](https://github.com/tera-private-toolbox/tera-game-state)**
 
