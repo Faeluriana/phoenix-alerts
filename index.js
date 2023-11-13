@@ -85,7 +85,7 @@ module.exports = function phoenix(mod) {
                 let ressId = (mod.game.party.getMemberData(event.source).class == 6) ? 12 : 10; // Mystic 10, Priest 12
                 // if event.skill starts with A+ressId then notify successfull ress (i.e. "A12")
                 if (event.skill.toString().startsWith('A' + ressId) && canSendMessage(event.target)) {
-                    sendFakeMessage(target, msgs[2]);
+                    sendFakeMessage(event.target, msgs[2]);
                 }
             }
         });
