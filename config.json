@@ -3,20 +3,24 @@
   "everyone": false,
   "debug": false,
   "dungeon": true,
+  "ress_Confirmation": true,
   "language": "en",
   
   "availableLanguages": {
     "en": [
-      "Phoenix Resurrection",
-      "Eren's Key"
+      "[Phoenix Resurrection]",
+      "[Eren's Key]",
+      "[Resurrection Successful]"
     ],
     "ru": [
-      "Воскрешение Феникса",
-      "Ключ Эрена"
+      "[Воскрешение Феникса]",
+      "[Ключ Эрена]",
+      "Placeholder"
     ],
     "pt": [
-      "Ressurreição da Fênix",
-      "Chave de Eren"
+      "[Ressurreição da Fênix]",
+      "[Chave de Eren]",
+      "[Ressurreição Sucedida]"
     ]
   }
 }

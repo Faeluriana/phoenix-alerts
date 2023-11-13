@@ -1,4 +1,4 @@
-let Healers = [6, 7];
+const Healers = [6, 7];
 
 module.exports = function phoenix(mod) {
     mod.game.initialize(['me', 'party']);
@@ -8,8 +8,10 @@ module.exports = function phoenix(mod) {
     let everyone = config.everyone;
     let dungeonOnly = config.dungeon;
     let healer = null;
-    let lang = config.language;
-    let msgs = config.availableLanguages[lang];
+    let ress_confirmation = config.ress_Confirmation;
+    const lang = config.language;
+    const msgs = config.availableLanguages[lang];
+
 
     mod.command.add('phoenix', (cmd) => {
         switch (cmd) {
@@ -42,7 +44,7 @@ module.exports = function phoenix(mod) {
         if (debug) {
             const name = mod.game.party.getMemberData(event.gameId).name;
             mod.command.message('S_CREATURE_LIFE: ' + name + ' ' + (event.alive ? 'alive' : 'dead'));
-            mod.command.message('resItem: ' + event.resItem + ' | resPassive: ' + event.resPassive);
+            mod.command.message('Eren\'s Key: ' + event.resItem + ' | Phoenix: ' + event.resPassive);
         }
 
         // If the player is in your party, and they are not you
@@ -62,9 +64,37 @@ module.exports = function phoenix(mod) {
         }
     });
 
+    /* only in dungeons for performance reasons */
+    if (ress_confirmation){
+        mod.hook('S_EACH_SKILL_RESULT', 14, (event) => {
+            if (!enabled) return;
+            if (!mod.game.me.inDungeon) return;
+
+            if (debug) {
+                const source = event.source;
+                const target = event.target;
+                const skillId = event.skill;
+                const type = event.type; // 0 = hidden
+                if (mod.game.party.isMember(source)) {
+                    const name = mod.game.party.getMemberData(source).name;
+                    mod.command.message('S_EACH_SKILL_RESULT: ' + name + ' ' + ' ' + skillId + ' ' + target + ' ' + type);
+                }
+            }
+
+            if (mod.game.party.isMember(event.source) && Healers.includes(mod.game.party.getMemberData(event.source).class)) {
+                let ressId = (mod.game.party.getMemberData(event.source).class == 6) ? 12 : 10; // Mystic 10, Priest 12
+                // if event.skill starts with A+ressId then notify successfull ress (i.e. "A12")
+                if (event.skill.toString().startsWith('A' + ressId) && canSendMessage(event.target)) {
+                    sendFakeMessage(target, msgs[2]);
+                }
+            }
+        });
+    }
+
+    /* Resurrection Scrolls probably need some Item related packet */
+
     const canSendMessage = (gameId) => {
         let targetRole = mod.game.party.getMemberData(gameId).class;
-        const name = mod.game.party.getMemberData(gameId).name;
 
         if (debug){
             const name = mod.game.party.getMemberData(gameId).name;

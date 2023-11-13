@@ -1,11 +1,13 @@
 {
   "files": {
-    "index.js": "800f2c647fa276f64b5eb50dd9c85b2e7d497aa610e328b6f0eb0e0ab88b1a8e",
-    "module.json": "262dfe23ef5d827abda54fd1153f326f906480b894425c26e8b4047d56599d60",
-    "README.md": "e4c1c987ba744da715db3dd9ceae107567d455ff97e955cd3e4f830d0763ae99"
+    "index.js": "ba77be3b08ce547b797441753db825d46e742d6b4f37e0ea3efb166ae97a3fde",
+    "module.json": "5b5883faab396a4d465030876f42b1d58cd69b70b165bc19d8b4efe30619f803",
+    "README.md": "2a07fa3cceef813487eec826c9c1179dc69975622c1ab90c9c543e04d10a0b80"
   },
   "defs": {
     "S_CREATURE_LIFE": 3,
-    "S_CHAT": 3
+    "S_CHAT": 3,
+    "S_ACTION_STAGE": 9,
+    "S_EACH_SKILL_RESULT": 14
   }
 }
