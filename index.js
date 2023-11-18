@@ -1,8 +1,10 @@
 const Healers = [6, 7];
+const HealerText = ['priest', 'elementalist'];
 
 module.exports = function phoenix(mod) {
     mod.game.initialize(['me', 'party']);
     const config = require('./config.json');
+    const langFile = require('./languages.json');
     let enabled = config.enabled;
     let debug = config.debug;
     let everyone = config.everyone;
@@ -10,14 +12,14 @@ module.exports = function phoenix(mod) {
     let healer = null;
     let ress_confirmation = config.ress_Confirmation;
     const lang = config.language;
-    const msgs = config.availableLanguages[lang];
+    const msgs = langFile.availableLanguages[lang];
 
 
     mod.command.add('phoenix', (cmd) => {
         switch (cmd) {
             case "all":
                 everyone = !everyone;
-                mod.command.message('phoenix alerts when ' + (everyone ? 'anyone' : (healer ? '' : 'a healer')) + ' is resurrecting');
+                mod.command.message('phoenix alerts when ' + (everyone ? 'anyone' : (healer ? 'anyone' : 'a healer')) + ' is resurrecting');
                 break;
             case "debug":
                 debug = !debug;
@@ -31,12 +33,7 @@ module.exports = function phoenix(mod) {
 
     // On login
     mod.game.on('enter_game', () => {
-        const temp = mod.game.me.class;
-        if (temp == "priest" || temp == "elementalist") {
-            healer = true;
-        }else {
-            healer = false;
-        }
+        healer = HealerText.includes(mod.game.me.class);
     });
 
     // On logout
@@ -75,6 +72,7 @@ module.exports = function phoenix(mod) {
             if (!enabled) return;
             if (!mod.game.me.inDungeon) return;
 
+            /* Lags the game in a dungeon fight. Use only for debugging with minimal actions
             if (debug) {
                 const source = event.source;
                 const target = event.target;
@@ -84,12 +82,18 @@ module.exports = function phoenix(mod) {
                     const name = mod.game.party.getMemberData(source).name;
                     mod.command.message('S_EACH_SKILL_RESULT: ' + name + ' ' + ' ' + skillId + ' ' + target + ' ' + type);
                 }
-            }
+            }*/
 
             if (mod.game.party.isMember(event.source) && Healers.includes(mod.game.party.getMemberData(event.source).class)) {
                 let ressId = (mod.game.party.getMemberData(event.source).class == 6) ? 12 : 10; // Mystic 10, Priest 12
                 // if event.skill starts with A+ressId then notify successfull ress (i.e. "A12")
                 if (event.skill.toString().startsWith('A' + ressId) && canSendMessage(event.target)) {
+                    if (debug) {
+                        const name = mod.game.party.getMemberData(event.source).name;
+                        const targetName = mod.game.party.getMemberData(event.target).name;
+                        const healerClass = (mod.game.party.getMemberData(event.source).class == 6) ? 'Priest' : 'Mystic';
+                        mod.command.message('Resurrect Skill: ' + healerClass + ' ' + name + ' to ' + targetName + ' | skillId: ' + event.skill);
+                    }
                     sendFakeMessage(event.target, msgs[2]);
                 }
             }
@@ -103,7 +107,7 @@ module.exports = function phoenix(mod) {
 
         if (debug) {
             const name = mod.game.party.getMemberData(gameId).name;
-            mod.command.message('canSendMessage: ' + name + ' ' + targetRole);
+            mod.command.message('Can send message: ' + name + ' | Class: ' + targetRole);
         }
         if (!enabled) return false;
         if (dungeonOnly && !mod.game.me.inDungeon) {
