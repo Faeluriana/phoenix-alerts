@@ -31,7 +31,12 @@ module.exports = function phoenix(mod) {
 
     // On login
     mod.game.on('enter_game', () => {
-        healer = Healers.includes(mod.game.me.class);
+        const temp = mod.game.me.class;
+        if (temp == "priest" || temp == "elementalist") {
+            healer = true;
+        }else {
+            healer = false;
+        }
     });
 
     // On logout

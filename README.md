@@ -3,7 +3,7 @@
 - Only you will be able to see this message
 - If your class is not a healer, it only alerts you when the healer is resurrecting with phoenix/key
 - If your class is a healer, it alerts you for everyone
-- As a healer, it also warns you when someone got ressurected but isn't getting up yet. It could potentially impact performance (?)
+- As a healer, it also warns you when someone got resurrected but isn't getting up yet. It could potentially impact performance (?)
 
 ## Configuration
 - `enabled`: `true` if you want the mod enabled on startup. `false` otherwise
